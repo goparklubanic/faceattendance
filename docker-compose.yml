@@ -1,0 +1,20 @@
+# version: "3.6"
+services:
+  face_recognition_app:
+    build: ./app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+      - PAYROLL_SERVER_URL=https://10.10.10.10/payroll/absensimpan.php # Change to actual payroll service URL
+    # devices:
+    #   - "/dev/video0:/dev/video0"
+    #   # Uncomment the following line if required
+    #   - privileged: true
+
+  # payroll_service:
+  #   image: mockserver/mockserver
+  #   ports:
+  #     - "1080:1080" # Example mock payroll service, replace with actual service in production
